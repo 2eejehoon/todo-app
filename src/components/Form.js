@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
+import { fetchAddTodo } from "../util/api";
 
 const Button = styled.button`
   display: flex;
@@ -15,7 +16,7 @@ const Button = styled.button`
   border-radius: 50%;
 `;
 
-const GreyButton = styled(Button)`
+const ClearButton = styled(Button)`
   background-color: grey;
   color: white;
 `;
@@ -46,17 +47,30 @@ const FormWrapper = styled.form`
   }
 `;
 
-export const Form = ({ handleAdd }) => {
+const Form = () => {
   const [value, setValue] = useState("");
   const [hasText, setHasText] = useState(false);
   const inputEl = useRef(null);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setValue("");
+
+    let data = {
+      value: e.target[0].value,
+      id: new Date().getTime(),
+      createdAt: new Date().toLocaleDateString(),
+      complete: false,
+    };
+    fetchAddTodo("http://localhost:3001/todos/", data);
+  };
 
   const handleChange = (e) => {
     setValue(e.target.value);
     setHasText(true);
   };
 
-  const handleButtonClick = () => {
+  const handleClear = () => {
     setValue("");
     setTimeout(() => inputEl.current.focus());
   };
@@ -72,12 +86,7 @@ export const Form = ({ handleAdd }) => {
   }, []);
 
   return (
-    <FormWrapper
-      onSubmit={(e) => {
-        handleAdd(e);
-        setValue("");
-      }}
-    >
+    <FormWrapper onSubmit={handleSubmit}>
       <Input
         type="text"
         ref={inputEl}
@@ -85,10 +94,12 @@ export const Form = ({ handleAdd }) => {
         onChange={handleChange}
       ></Input>
       {hasText ? (
-        <GreyButton type="button" onClick={handleButtonClick}>
+        <ClearButton type="button" onClick={handleClear}>
           <FontAwesomeIcon icon={faX} />
-        </GreyButton>
+        </ClearButton>
       ) : null}
     </FormWrapper>
   );
 };
+
+export default Form;

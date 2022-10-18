@@ -31,12 +31,7 @@ const Button = styled.button`
   }
 `;
 
-export const TodoContainer = ({
-  todos,
-  handleUpdate,
-  handleDelete,
-  handleComplete,
-}) => {
+const TodoContainer = ({ todos }) => {
   const [filterBy, setFilterBy] = useState("전체");
 
   const handleButtonClick = (e) => {
@@ -75,40 +70,18 @@ export const TodoContainer = ({
       <Container>
         {filterBy === "전체"
           ? todos.map((todo) => {
-              return (
-                <Todo
-                  key={todo.id}
-                  todo={todo}
-                  handleUpdate={handleUpdate}
-                  handleDelete={handleDelete}
-                  handleComplete={handleComplete}
-                ></Todo>
-              );
+              return <Todo key={todo.id} todo={todo}></Todo>;
             })
           : filterBy === "완료"
           ? completeTodos.map((todo) => {
-              return (
-                <Todo
-                  key={todo.id}
-                  todo={todo}
-                  handleUpdate={handleUpdate}
-                  handleDelete={handleDelete}
-                  handleComplete={handleComplete}
-                ></Todo>
-              );
+              return <Todo key={todo.id} todo={todo}></Todo>;
             })
           : incompleteTodos.map((todo) => {
-              return (
-                <Todo
-                  key={todo.id}
-                  todo={todo}
-                  handleUpdate={handleUpdate}
-                  handleDelete={handleDelete}
-                  handleComplete={handleComplete}
-                ></Todo>
-              );
+              return <Todo key={todo.id} todo={todo}></Todo>;
             })}
       </Container>
     </>
   );
 };
+
+export default TodoContainer;
