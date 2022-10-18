@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useState, useRef } from "react";
 import styled from "styled-components";
 import { fetchDelete, fetchPatch, fetchPut } from "../util/api";
@@ -19,6 +20,11 @@ const Li = styled.li`
   height: 10vh;
   margin-top: 5px;
   font-size: 15px;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black;
 `;
 
 const Form = styled.form`
@@ -143,10 +149,12 @@ export const Todo = ({ todo }) => {
             >
               {todo.complete ? <FontAwesomeIcon icon={faCheck} /> : null}
             </CompleteButton>
-            <Div className={todo.complete ? "complete" : null}>{value}</Div>
+            <StyledLink to={`todos/${todo.id}`}>
+              <Div className={todo.complete ? "complete" : null}>{value}</Div>
+            </StyledLink>
             <ButtonWrapper>
               <Button
-                type="button"
+                type="submit"
                 onClick={(e) => handleUpdateClick(e, todo.id)}
               >
                 <FontAwesomeIcon icon={faPencil} />

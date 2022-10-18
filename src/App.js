@@ -3,6 +3,7 @@ import { Main } from "./pages/Main";
 import "./App.css";
 import useFetch from "./util/useFetch";
 import Loading from "./components/Loading";
+import TodoDetail from "./pages/TodoDetail";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -17,7 +18,8 @@ function App() {
             exact
             path="/"
             element={<Main todos={todos} isPending={isPending}></Main>}
-          ></Route>
+          />
+          <Route path="/todos/:id" element={<TodoDetail></TodoDetail>} />
         </Routes>
       </Suspense>
     </BrowserRouter>

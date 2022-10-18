@@ -1,28 +1,25 @@
 {
   "todos": [
     {
+      "id": 1666105529310,
       "value": "공부",
-      "id": 1,
-      "createdAt": "2022. 10. 18.",
-      "complete": false
+      "createdAt": "10/19/2022",
+      "complete": false,
+      "content": "asdasdasdasd"
     },
     {
+      "id": 1666105531079,
       "value": "운동",
-      "id": 2,
-      "createdAt": "2022. 10. 18.",
-      "complete": false
+      "createdAt": "10/19/2022",
+      "complete": false,
+      "content": ""
     },
     {
-      "value": "강아지 산책",
-      "id": 3,
-      "createdAt": "2022. 10. 18.",
-      "complete": false
-    },
-    {
-      "value": "삭제",
-      "id": 1666089177317,
-      "createdAt": "10/18/2022",
-      "complete": false
+      "id": 1666105533608,
+      "value": "순돌이 산책",
+      "createdAt": "10/19/2022",
+      "complete": false,
+      "content": ""
     }
   ]
 }

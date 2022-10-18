@@ -57,10 +57,11 @@ const Form = () => {
     setValue("");
 
     let data = {
-      value: e.target[0].value,
       id: new Date().getTime(),
+      value: e.target[0].value,
       createdAt: new Date().toLocaleDateString(),
       complete: false,
+      content: "",
     };
     fetchAddTodo("http://localhost:3001/todos/", data);
   };

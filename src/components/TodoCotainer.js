@@ -37,8 +37,10 @@ const TodoContainer = ({ todos }) => {
   const handleButtonClick = (e) => {
     setFilterBy(e.target.value);
   };
+
   const completeTodos = todos.filter((el) => el.complete === true);
   const incompleteTodos = todos.filter((el) => el.complete === false);
+
   return (
     <>
       <FilterWrapper>
