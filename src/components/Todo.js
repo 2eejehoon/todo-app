@@ -98,7 +98,7 @@ export const Todo = ({ todo }) => {
     fetchPatch("http://localhost:3001/todos/", id, data);
   };
 
-  const handleSubmit = (e, todo) => {
+  const handleUpdate = (e, todo) => {
     e.preventDefault();
     let data = {
       ...todo,
@@ -112,7 +112,7 @@ export const Todo = ({ todo }) => {
       {updateId === todo.id ? (
         // 수정
         <Li>
-          <Form onSubmit={(e) => handleSubmit(e, todo)}>
+          <Form onSubmit={(e) => handleUpdate(e, todo)}>
             <CompleteButton
               type="submit"
               onClick={() => handleComplete(todo.id, todo.complete)}

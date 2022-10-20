@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import styled from "styled-components";
-import useFetch from "../util/useFetch";
-import Loading from "../components/Loading";
 import { fetchDelete, fetchPut } from "../util/api";
 import { useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+import styled from "styled-components";
+import useFetch from "../util/useFetch";
+import Loading from "../components/Loading";
 
 const Wrapper = styled.main`
   background-color: #f0f0f0;
@@ -61,6 +61,11 @@ const Title = styled.h1`
   color: black;
   margin: 0.5em;
   height: 6vh;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black;
 `;
 
 const ButtonWrapper = styled.div`
@@ -135,14 +140,14 @@ const TodoDetail = () => {
       {isEdit ? (
         <>
           {isPending ? (
-            <Loading></Loading>
+            <Loading />
           ) : (
             <Wrapper>
               <ExitButtonWrapper>
                 <ExitButton type="button">
-                  <Link to="/">
+                  <StyledLink to="/">
                     <FontAwesomeIcon icon={faArrowRightFromBracket} />
-                  </Link>
+                  </StyledLink>
                 </ExitButton>
               </ExitButtonWrapper>
               <Title>{todo.value}</Title>
@@ -169,7 +174,7 @@ const TodoDetail = () => {
       ) : (
         <>
           {isPending ? (
-            <Loading></Loading>
+            <Loading />
           ) : (
             <Wrapper>
               <ExitButtonWrapper>

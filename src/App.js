@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { Main } from "./pages/Main";
+import TodoList from "./pages/TodoList";
 import "./App.css";
 import useFetch from "./util/useFetch";
 import Loading from "./components/Loading";
@@ -17,9 +17,9 @@ function App() {
           <Route
             exact
             path="/"
-            element={<Main todos={todos} isPending={isPending}></Main>}
+            element={<TodoList todos={todos} isPending={isPending} />}
           />
-          <Route path="/todos/:id" element={<TodoDetail></TodoDetail>} />
+          <Route path="/todos/:id" element={<TodoDetail />} />
         </Routes>
       </Suspense>
     </BrowserRouter>

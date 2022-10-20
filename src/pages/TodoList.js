@@ -14,18 +14,16 @@ const Wrapper = styled.main`
   height: 100vh;
 `;
 
-export const Main = ({ todos, isPending }) => {
+const TodoList = ({ todos, isPending }) => {
   return (
     <>
       <Wrapper>
         <Header />
-        <Form></Form>
-        {isPending ? (
-          <Loading></Loading>
-        ) : (
-          <TodoContainer todos={todos}></TodoContainer>
-        )}
+        <Form />
+        {isPending ? <Loading /> : <TodoContainer todos={todos} />}
       </Wrapper>
     </>
   );
 };
+
+export default TodoList;

@@ -52,7 +52,7 @@ const Form = () => {
   const [hasText, setHasText] = useState(false);
   const inputEl = useRef(null);
 
-  const handleSubmit = (e) => {
+  const handleAddTodo = (e) => {
     e.preventDefault();
     setValue("");
 
@@ -87,7 +87,7 @@ const Form = () => {
   }, []);
 
   return (
-    <FormWrapper onSubmit={handleSubmit}>
+    <FormWrapper onSubmit={handleAddTodo}>
       <Input
         type="text"
         ref={inputEl}
