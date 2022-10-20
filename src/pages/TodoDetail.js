@@ -89,7 +89,9 @@ const ExitButtonWrapper = styled.div`
 `;
 
 const ExitButton = styled.button`
-  background-color: #f9f9f9;
+  background-color: #f0f0f0;
+  text-decoration: none;
+  color: black;
   border: white;
   border-radius: 50%;
   width: 20px;
