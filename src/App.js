@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchTodo } from "./actions/todoAction";
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect } from "react";
 import TodoList from "./pages/TodoList";
 import "./App.css";
 import useFetch from "./util/useFetch";
@@ -17,9 +16,8 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchTodo("http://localhost:3001/todos/"));
-  }, []);
+  }, [dispatch]);
 
-  console.log(state);
   return (
     <BrowserRouter>
       {error && <div>{error}</div>}
