@@ -1,14 +1,15 @@
-import { Link } from "react-router-dom";
-import { useState, useRef } from "react";
-import styled from "styled-components";
-import { fetchDelete, fetchPatch, fetchPut } from "../util/api";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+/* eslint-disable react/prop-types */
+import { Link } from 'react-router-dom';
+import { useState, useRef } from 'react';
+import styled from 'styled-components';
+import { fetchDelete, fetchPatch, fetchPut } from '../util/api';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCheck,
   faPencil,
   faFloppyDisk,
   faTrashCan,
-} from "@fortawesome/free-solid-svg-icons";
+} from '@fortawesome/free-solid-svg-icons';
 
 const Li = styled.li`
   background-color: #f9f9f9;
@@ -72,7 +73,7 @@ const CompleteButton = styled(Button)`
 
 export const Todo = ({ todo }) => {
   const [value, setValue] = useState(todo.value);
-  const [updateId, setUpdateId] = useState("");
+  const [updateId, setUpdateId] = useState('');
   const inputEl = useRef(null);
 
   const handleChange = (e) => {
@@ -88,14 +89,14 @@ export const Todo = ({ todo }) => {
   };
 
   const handleDelete = (id) => {
-    fetchDelete("http://localhost:3001/todos/", id);
+    fetchDelete('http://localhost:3001/todos/', id);
   };
 
   const handleComplete = (id, complete) => {
     let data = {
       complete: !complete,
     };
-    fetchPatch("http://localhost:3001/todos/", id, data);
+    fetchPatch('http://localhost:3001/todos/', id, data);
   };
 
   const handleUpdate = (e, todo) => {
@@ -104,7 +105,7 @@ export const Todo = ({ todo }) => {
       ...todo,
       value: e.target[1].value,
     };
-    fetchPut("http://localhost:3001/todos/", todo.id, data);
+    fetchPut('http://localhost:3001/todos/', todo.id, data);
   };
 
   return (
@@ -150,7 +151,7 @@ export const Todo = ({ todo }) => {
               {todo.complete ? <FontAwesomeIcon icon={faCheck} /> : null}
             </CompleteButton>
             <StyledLink to={`todos/${todo.id}`}>
-              <Div className={todo.complete ? "complete" : null}>{value}</Div>
+              <Div className={todo.complete ? 'complete' : null}>{value}</Div>
             </StyledLink>
             <ButtonWrapper>
               <Button

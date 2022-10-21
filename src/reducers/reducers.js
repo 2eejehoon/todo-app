@@ -1,4 +1,4 @@
-import { TODO_GET_FAIL, TODO_GET_SUCCESS } from "../actions/todoAction";
+import { TODO_GET_FAIL, TODO_GET_SUCCESS } from '../actions/todoAction';
 
 const initialState = {
   success: false,

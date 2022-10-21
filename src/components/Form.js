@@ -1,8 +1,8 @@
-import { useState, useEffect, useRef } from "react";
-import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faX } from "@fortawesome/free-solid-svg-icons";
-import { fetchAddTodo } from "../util/api";
+import { useState, useEffect, useRef } from 'react';
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faX } from '@fortawesome/free-solid-svg-icons';
+import { fetchAddTodo } from '../util/api';
 
 const Button = styled.button`
   display: flex;
@@ -48,22 +48,22 @@ const FormWrapper = styled.form`
 `;
 
 const Form = () => {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState('');
   const [hasText, setHasText] = useState(false);
   const inputEl = useRef(null);
 
   const handleAddTodo = (e) => {
     e.preventDefault();
-    setValue("");
+    setValue('');
 
     let data = {
       id: new Date().getTime(),
       value: e.target[0].value,
       createdAt: new Date().toLocaleDateString(),
       complete: false,
-      content: "",
+      content: '',
     };
-    fetchAddTodo("http://localhost:3001/todos/", data);
+    fetchAddTodo('http://localhost:3001/todos/', data);
   };
 
   const handleChange = (e) => {
@@ -72,12 +72,12 @@ const Form = () => {
   };
 
   const handleClear = () => {
-    setValue("");
+    setValue('');
     setTimeout(() => inputEl.current.focus());
   };
 
   useEffect(() => {
-    if (value === "") {
+    if (value === '') {
       setHasText(false);
     }
   }, [value]);

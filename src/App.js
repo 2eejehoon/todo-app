@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchTodo } from './actions/todoAction';
 import { Suspense, useEffect } from 'react';
