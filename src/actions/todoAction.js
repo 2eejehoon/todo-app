@@ -1,7 +1,7 @@
-import axios from "axios";
+import axios from 'axios';
 
-export const TODO_GET_SUCCESS = "TODO_SUCCESS";
-export const TODO_GET_FAIL = "TODO_FAIL";
+export const TODO_GET_SUCCESS = 'TODO_SUCCESS';
+export const TODO_GET_FAIL = 'TODO_FAIL';
 
 export const fetchTodo = (url) => async (dispatch) => {
   try {

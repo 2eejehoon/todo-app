@@ -1,22 +1,24 @@
-import { useSelector, useDispatch } from "react-redux";
-import { fetchTodo } from "./actions/todoAction";
-import React, { Suspense, useEffect } from "react";
-import TodoList from "./pages/TodoList";
-import "./App.css";
-import useFetch from "./util/useFetch";
-import Loading from "./components/Loading";
-import TodoDetail from "./pages/TodoDetail";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchTodo } from './actions/todoAction';
+import { Suspense, useEffect } from 'react';
+import TodoList from './pages/TodoList';
+import './App.css';
+import useFetch from './util/useFetch';
+import Loading from './components/Loading';
+import TodoDetail from './pages/TodoDetail';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
-  const [todos, isPending, error] = useFetch("http://localhost:3001/todos/");
+  const [todos, isPending, error] = useFetch('http://localhost:3001/todos/');
 
   const state = useSelector((state) => state.todoReducer);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchTodo("http://localhost:3001/todos/"));
+    dispatch(fetchTodo('http://localhost:3001/todos/'));
   }, [dispatch]);
+
+  console.log(state);
 
   return (
     <BrowserRouter>
