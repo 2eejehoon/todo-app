@@ -1,12 +1,11 @@
-import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
-import { fetchDelete, fetchPut } from "../util/api";
-import { useState, useRef } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
-import styled from "styled-components";
-import useFetch from "../util/useFetch";
-import Loading from "../components/Loading";
+import { Link, useParams } from 'react-router-dom';
+import { fetchDelete, fetchPut } from '../util/api';
+import { useState, useRef } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import styled from 'styled-components';
+import useFetch from '../util/useFetch';
+import Loading from '../components/Loading';
 
 const Wrapper = styled.main`
   background-color: #f0f0f0;
@@ -105,7 +104,7 @@ const ExitButton = styled.button`
 
 const TodoDetail = () => {
   const [isEdit, setIsEdit] = useState(false);
-  const [content, setContent] = useState("");
+  const [content, setContent] = useState('');
   const inputEl = useRef(null);
   const { id } = useParams();
   const [todo, isPending, error] = useFetch(
@@ -123,7 +122,7 @@ const TodoDetail = () => {
   };
 
   const handleDeleteClick = (id) => {
-    fetchDelete("http://localhost:3001/todos/", id);
+    fetchDelete('http://localhost:3001/todos/', id);
   };
   const handleUpdate = (e, todo) => {
     e.preventDefault();
@@ -131,7 +130,7 @@ const TodoDetail = () => {
       ...todo,
       content: e.target[2].value,
     };
-    fetchPut("http://localhost:3001/todos/", id, data);
+    fetchPut('http://localhost:3001/todos/', id, data);
   };
 
   return (

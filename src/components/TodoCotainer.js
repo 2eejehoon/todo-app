@@ -1,6 +1,7 @@
-import styled from "styled-components";
-import { Todo } from "./Todo";
-import { useState } from "react";
+/* eslint-disable react/prop-types */
+import styled from 'styled-components';
+import { Todo } from './Todo';
+import { useState } from 'react';
 
 const Container = styled.ul`
   width: 90vw;
@@ -32,7 +33,7 @@ const Button = styled.button`
 `;
 
 const TodoContainer = ({ todos }) => {
-  const [filterBy, setFilterBy] = useState("전체");
+  const [filterBy, setFilterBy] = useState('전체');
 
   const handleButtonClick = (e) => {
     setFilterBy(e.target.value);
@@ -48,7 +49,7 @@ const TodoContainer = ({ todos }) => {
           type="button"
           value="전체"
           onClick={handleButtonClick}
-          className={filterBy === "전체" ? "bold" : null}
+          className={filterBy === '전체' ? 'bold' : null}
         >
           전체
         </Button>
@@ -56,7 +57,7 @@ const TodoContainer = ({ todos }) => {
           type="button"
           value="완료"
           onClick={handleButtonClick}
-          className={filterBy === "완료" ? "bold" : null}
+          className={filterBy === '완료' ? 'bold' : null}
         >
           완료
         </Button>
@@ -64,17 +65,17 @@ const TodoContainer = ({ todos }) => {
           type="button"
           value="미완료"
           onClick={handleButtonClick}
-          className={filterBy === "미완료" ? "bold" : null}
+          className={filterBy === '미완료' ? 'bold' : null}
         >
           미완료
         </Button>
       </FilterWrapper>
       <Container>
-        {filterBy === "전체"
+        {filterBy === '전체'
           ? todos.map((todo) => {
               return <Todo key={todo.id} todo={todo}></Todo>;
             })
-          : filterBy === "완료"
+          : filterBy === '완료'
           ? completeTodos.map((todo) => {
               return <Todo key={todo.id} todo={todo}></Todo>;
             })
